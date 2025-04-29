@@ -8,9 +8,9 @@ export default function App() {
       <Header />
       <main>
         <Projects />
-        <Input label="title" />
+        <Input type="text" label="title" />
         <Input label="description" textarea />
-        <Input label="due date" />
+        <Input type="date" label="due date" />
       </main>
     </>
   );
