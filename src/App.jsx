@@ -1,3 +1,9 @@
+import Header from "./components/Header/Header";
+
 export default function App() {
-  return <h1>To Do List</h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
