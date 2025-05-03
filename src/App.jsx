@@ -1,6 +1,6 @@
 import Header from "./components/Header/Header";
 import Projects from "./components/Projects/Projects";
-import Input from "./components/UI/Input";
+import NewProject from "./components/NewProject/NewProject";
 
 export default function App() {
   return (
@@ -8,9 +8,7 @@ export default function App() {
       <Header />
       <main>
         <Projects />
-        <Input type="text" label="title" />
-        <Input label="description" textarea />
-        <Input type="date" label="due date" />
+        <NewProject />
       </main>
     </>
   );
