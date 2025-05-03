@@ -1,18 +1,36 @@
+import classes from "./Projects.module.css";
+
 export default function Projects({ projects }) {
   return (
-    <section>
-      <h1>To Do</h1>
-      {projects.length === 0 && <p>No projects found.</p>}
-      <ul>
-        {projects.map(project => (
-          <li key={project.id}>
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
-            <p>Due Date: {project.dueDate}</p>
-            <p>Status: {project.isDone ? "Done" : "Not Done"}</p>
-          </li>
-        ))}
-      </ul>
+    <section className={classes.projects}>
+      <h1 className={classes.projectsHeading}>To Do</h1>
+      <div>
+        {projects.length === 0 && <p>No projects found.</p>}
+        <ul className={classes.container}>
+          {projects.map(project => (
+            <li key={project.id}>
+              <div className={classes.projectCheckbox}>
+                <input
+                  type="checkbox"
+                  id="scales"
+                  name="scales"
+                  checked={project.isDone ? ture : false}
+                  className={`${classes.checkbox} ${classes.test}`}
+                />
+                <label for="scales" className={classes.projectTitle}>
+                  {project.title}
+                </label>
+              </div>
+              <p className={classes.projectDueDate}>
+                due date: {project.dueDate}
+              </p>
+              <p className={classes.projectDescription}>
+                {project.description}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

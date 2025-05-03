@@ -35,12 +35,12 @@ export default function NewProject({ onCreate }) {
   }
 
   return (
-    <>
+    <div>
       <Input type="text" label="title" ref={title} />
       <Input label="description" textarea ref={description} />
       <Input type="date" label="due date" ref={dueDate} />
       <Button button="cancel" onClick={handleCancel} />
       <Button button="save" onClick={handleSave} />
-    </>
+    </div>
   );
 }
