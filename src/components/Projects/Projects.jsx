@@ -1,5 +1,7 @@
 import classes from "./Projects.module.css";
 
+import Button from "../UI/Button";
+
 export default function Projects({ projects }) {
   return (
     <section className={classes.projects}>
@@ -21,6 +23,10 @@ export default function Projects({ projects }) {
                   {project.title}
                 </label>
               </div>
+              <p className={classes.buttons}>
+                <Button button="edit" />
+                <Button button="delete" />
+              </p>
               <p className={classes.projectDueDate}>
                 due date: {project.dueDate}
               </p>

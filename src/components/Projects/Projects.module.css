@@ -54,6 +54,10 @@ p {
   text-transform: uppercase;
 }
 
+.buttons {
+  text-align: right;
+}
+
 .projectDueDate {
   margin-top: 25px;
   font-weight: 600;
