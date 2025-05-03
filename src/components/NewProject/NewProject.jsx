@@ -27,12 +27,19 @@ export default function NewProject({ onCreate }) {
     dueDate.current.value = "";
   }
 
+  function handleCancel() {
+    // empty the input fields
+    title.current.value = "";
+    description.current.value = "";
+    dueDate.current.value = "";
+  }
+
   return (
     <>
       <Input type="text" label="title" ref={title} />
       <Input label="description" textarea ref={description} />
       <Input type="date" label="due date" ref={dueDate} />
-      <Button button="cancel" />
+      <Button button="cancel" onClick={handleCancel} />
       <Button button="save" onClick={handleSave} />
     </>
   );
