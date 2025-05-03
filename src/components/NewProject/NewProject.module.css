@@ -15,3 +15,7 @@
 .container {
   padding: 8px 15px 0 15px;
 }
+
+.buttons {
+  text-align: right;
+}
