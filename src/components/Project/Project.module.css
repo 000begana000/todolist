@@ -1,0 +1,42 @@
+.checkbox {
+  all: unset;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: black;
+  margin-right: 12px;
+  border: 1px solid black;
+  border-radius: 0;
+}
+
+.checkbox:checked {
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.projectCheckbox {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.projectTitle {
+  font-size: 20px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.buttons {
+  text-align: right;
+}
+
+.projectDueDate {
+  margin-top: 25px;
+  font-weight: 600;
+}
+
+.projectDescription {
+  margin-top: 8px;
+  font-weight: 300;
+}

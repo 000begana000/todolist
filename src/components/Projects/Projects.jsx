@@ -1,6 +1,5 @@
 import classes from "./Projects.module.css";
-
-import Button from "../UI/Button";
+import Project from "../Project/Project";
 
 export default function Projects({ projects }) {
   return (
@@ -10,30 +9,7 @@ export default function Projects({ projects }) {
         {projects.length === 0 && <p>No projects found.</p>}
         <ul className={classes.container}>
           {projects.map(project => (
-            <li key={project.id}>
-              <div className={classes.projectCheckbox}>
-                <input
-                  type="checkbox"
-                  id="scales"
-                  name="scales"
-                  checked={project.isDone ? ture : false}
-                  className={`${classes.checkbox} ${classes.test}`}
-                />
-                <label for="scales" className={classes.projectTitle}>
-                  {project.title}
-                </label>
-              </div>
-              <p className={classes.buttons}>
-                <Button button="edit" />
-                <Button button="delete" />
-              </p>
-              <p className={classes.projectDueDate}>
-                due date: {project.dueDate}
-              </p>
-              <p className={classes.projectDescription}>
-                {project.description}
-              </p>
-            </li>
+            <Project project={project} key={project.id} />
           ))}
         </ul>
       </div>
