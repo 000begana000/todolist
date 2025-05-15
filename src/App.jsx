@@ -16,6 +16,13 @@ export default function App() {
         isDone: false,
       },
     ],
+    tasks: [
+      // dummy task
+      {
+        id: Math.floor(Math.random() * 1000) + 1,
+        description: "this is test",
+      },
+    ],
   });
 
   /// create new project ///
@@ -49,6 +56,7 @@ export default function App() {
         <Projects
           projects={projectsState.projects}
           onDelete={handleDeleteProject}
+          tasks={projectsState.tasks}
         />
         <NewProject onCreate={handleCreateNewProject} />
       </main>

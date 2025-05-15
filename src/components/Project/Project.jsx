@@ -4,9 +4,10 @@ import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 import classes from "./Project.module.css";
 
+import Task from "../Task/Task";
 import Button from "../UI/Button";
 
-export default function Project({ project, onDelete }) {
+export default function Project({ project, tasks, onDelete }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isDone, setIsDone] = useState(false);
 
@@ -35,8 +36,8 @@ export default function Project({ project, onDelete }) {
 
   return (
     <>
-      <li className={classes.project} key={project.id}>
-        <div className={classes.projectCheckbox}>
+      <li className={classes.projectContainer} key={project.id}>
+        <div className={classes.project}>
           <div>
             <input
               type="checkbox"
@@ -72,10 +73,18 @@ export default function Project({ project, onDelete }) {
               due date: {project.dueDate}
             </p>
             <p className={classes.projectDescription}>{project.description}</p>
+
+            <div className="tasks">
+              <ul>
+                {tasks.map(task => (
+                  <Task task={task} />
+                ))}
+              </ul>
+            </div>
           </div>
         )}
       </li>
-      <div className={classes.underline}></div>
+      <div className={classes.breakline}></div>
     </>
   );
 }

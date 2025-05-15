@@ -1,0 +1,41 @@
+.newTask {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.flex {
+  display: flex;
+}
+
+.checkbox {
+  all: unset;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: black;
+  margin-right: 12px;
+  border: 1px solid black;
+  border-radius: 0;
+}
+
+.checkbox:checked {
+  border-color: black;
+  color: white;
+  position: relative;
+}
+
+.checkbox:checked::before {
+  content: "X";
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  left: 2px;
+  top: -4px;
+}
