@@ -66,6 +66,10 @@
   font-weight: 300;
 }
 
+.tasks {
+  padding-left: 16px;
+}
+
 .breakline {
   border: 0.5px solid;
   margin-top: 15px;

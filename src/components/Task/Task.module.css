@@ -39,3 +39,8 @@
   left: 2px;
   top: -4px;
 }
+
+.description {
+  text-transform: capitalize;
+  font-size: 18px;
+}

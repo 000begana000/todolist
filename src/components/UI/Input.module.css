@@ -33,3 +33,14 @@ input {
   font-family: "Cormorant Garamond", serif;
   font-size: 16px;
 }
+
+.task {
+  width: 234px;
+  height: 22px;
+}
+
+.taskLabel {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}

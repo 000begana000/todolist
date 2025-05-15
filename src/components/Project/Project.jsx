@@ -74,8 +74,8 @@ export default function Project({ project, tasks, onDelete }) {
             </p>
             <p className={classes.projectDescription}>{project.description}</p>
 
-            <div className="tasks">
-              <ul>
+            <div>
+              <ul className={classes.tasks}>
                 {tasks.map(task => (
                   <Task task={task} />
                 ))}

@@ -1,13 +1,15 @@
 import classes from "./Input.module.css";
 
-export default function Input({ label, textarea, ...props }) {
+export default function Input({ label, textarea, task, ...props }) {
   return (
     <p>
-      <label className={classes.label}>{label}</label>
+      <label className={task ? classes.taskLabel : classes.label}>
+        {label}
+      </label>
       {textarea ? (
         <textarea {...props} className={classes.text} />
       ) : (
-        <input {...props} />
+        <input {...props} className={task ? classes.task : undefined} />
       )}
     </p>
   );

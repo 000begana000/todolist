@@ -11,8 +11,8 @@ export default function Task({ task }) {
   return (
     <>
       <div className={classes.newTask}>
-        <Input />
-        <Button button="save" />
+        <Input task />
+        <Button button="save" task />
       </div>
       <li key={task.id} className={classes.task}>
         <div className={classes.flex}>
@@ -23,9 +23,11 @@ export default function Task({ task }) {
             checked={isDone}
             className={classes.checkbox}
           />
-          <label htmlFor="scales">{task.description}</label>
+          <label htmlFor="scales" className={classes.description}>
+            {task.description}
+          </label>
         </div>
-        <Button button="edit" />
+        <Button button="edit" task />
       </li>
     </>
   );
