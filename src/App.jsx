@@ -6,8 +6,8 @@ import NewProject from "./components/NewProject/NewProject";
 
 export default function App() {
   const [projectsState, setProjectsState] = useState({
-    // dummy project
     projects: [
+      // dummy project
       {
         id: Math.floor(Math.random() * 1000) + 1,
         title: "Project 1",
@@ -33,6 +33,7 @@ export default function App() {
     });
   }
 
+  /// delete a project ///
   function handleDeleteProject(id) {
     setProjectsState(prevState => {
       return {

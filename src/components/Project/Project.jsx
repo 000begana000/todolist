@@ -6,16 +6,15 @@ import classes from "./Project.module.css";
 
 import Button from "../UI/Button";
 
-// change input field to Input component
 export default function Project({ project, onDelete }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isDone, setIsDone] = useState(false);
 
-  /// collapse icons
+  /// collapse icons ///
   const collapseUpIcon = <FontAwesomeIcon icon={faChevronUp} />;
   const collapseDownIcon = <FontAwesomeIcon icon={faChevronDown} />;
 
-  /// style project title
+  /// style project title ///
   let isProjectDone;
 
   if (isDone) {
@@ -24,12 +23,12 @@ export default function Project({ project, onDelete }) {
     isProjectDone = classes.projectTitle;
   }
 
-  /// toggle collapse when user clicks collapse button
+  /// toggle collapse when user clicks collapse button ///
   function toggleCollapse() {
     setIsCollapsed(prevState => !prevState);
   }
 
-  /// toggle isDone state & update UI
+  /// toggle isDone state & update UI ///
   function handleToggleDone() {
     setIsDone(!isDone);
   }
