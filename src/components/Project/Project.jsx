@@ -1,8 +1,17 @@
+import { useState } from "react";
 import classes from "./Project.module.css";
 
 import Button from "../UI/Button";
 
+// change input field to Input component
 export default function Project({ project }) {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  // toggle collapse when user clicks collapse button
+  function toggleCollapse() {
+    setIsCollapsed(prevState => !prevState);
+  }
+
   return (
     <li key={project.id}>
       <div className={classes.projectCheckbox}>
@@ -13,16 +22,28 @@ export default function Project({ project }) {
           checked={project.isDone ? ture : false}
           className={`${classes.checkbox} ${classes.test}`}
         />
-        <label for="scales" className={classes.projectTitle}>
+        <label htmlFor="scales" className={classes.projectTitle}>
           {project.title}
         </label>
+        <button
+          className={classes.collapseButton}
+          onClick={toggleCollapse}
+          aria-label="Toggle project details"
+        >
+          {isCollapsed ? "▶" : "▼"} {/* Arrow icon changes based on state */}
+        </button>
       </div>
-      <p className={classes.buttons}>
-        <Button button="edit" />
-        <Button button="delete" />
-      </p>
-      <p className={classes.projectDueDate}>due date: {project.dueDate}</p>
-      <p className={classes.projectDescription}>{project.description}</p>
+
+      {!isCollapsed && (
+        <div>
+          <p className={classes.buttons}>
+            <Button button="edit" />
+            <Button button="delete" />
+          </p>
+          <p className={classes.projectDueDate}>due date: {project.dueDate}</p>
+          <p className={classes.projectDescription}>{project.description}</p>
+        </div>
+      )}
     </li>
   );
 }

@@ -10,6 +10,7 @@ export default function NewProject({ onCreate }) {
   const description = useRef();
   const dueDate = useRef();
 
+  // save the new project
   function handleSave() {
     console.log("save");
 
@@ -29,6 +30,7 @@ export default function NewProject({ onCreate }) {
     dueDate.current.value = "";
   }
 
+  // cancel the new project
   function handleCancel() {
     // empty the input fields
     title.current.value = "";
