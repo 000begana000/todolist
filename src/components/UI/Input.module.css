@@ -23,11 +23,13 @@ input {
 }
 
 .text {
-  all: unset;
   border-radius: 0;
   border: 1px solid black;
   height: 89px;
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
 }
