@@ -13,37 +13,42 @@ export default function Project({ project }) {
   }
 
   return (
-    <li key={project.id}>
-      <div className={classes.projectCheckbox}>
-        <input
-          type="checkbox"
-          id="scales"
-          name="scales"
-          checked={project.isDone ? ture : false}
-          className={`${classes.checkbox} ${classes.test}`}
-        />
-        <label htmlFor="scales" className={classes.projectTitle}>
-          {project.title}
-        </label>
-        <button
-          className={classes.collapseButton}
-          onClick={toggleCollapse}
-          aria-label="Toggle project details"
-        >
-          {isCollapsed ? "▶" : "▼"} {/* Arrow icon changes based on state */}
-        </button>
-      </div>
-
-      {!isCollapsed && (
-        <div>
-          <p className={classes.buttons}>
-            <Button button="edit" />
-            <Button button="delete" />
-          </p>
-          <p className={classes.projectDueDate}>due date: {project.dueDate}</p>
-          <p className={classes.projectDescription}>{project.description}</p>
+    <>
+      <li className={classes.project} key={project.id}>
+        <div className={classes.projectCheckbox}>
+          <input
+            type="checkbox"
+            id="scales"
+            name="scales"
+            checked={project.isDone ? ture : false}
+            className={`${classes.checkbox} ${classes.test}`}
+          />
+          <label htmlFor="scales" className={classes.projectTitle}>
+            {project.title}
+          </label>
+          <button
+            className={classes.collapseButton}
+            onClick={toggleCollapse}
+            aria-label="Toggle project details"
+          >
+            {isCollapsed ? "▶" : "▼"} {/* Arrow icon changes based on state */}
+          </button>
         </div>
-      )}
-    </li>
+
+        {!isCollapsed && (
+          <div>
+            <p className={classes.buttons}>
+              <Button button="edit" />
+              <Button button="delete" />
+            </p>
+            <p className={classes.projectDueDate}>
+              due date: {project.dueDate}
+            </p>
+            <p className={classes.projectDescription}>{project.description}</p>
+          </div>
+        )}
+      </li>
+      <div className={classes.underline}></div>
+    </>
   );
 }

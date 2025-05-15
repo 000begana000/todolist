@@ -1,3 +1,7 @@
+.project {
+  margin-top: 23px;
+}
+
 .checkbox {
   all: unset;
   width: 16px;
@@ -39,4 +43,9 @@
 .projectDescription {
   margin-top: 8px;
   font-weight: 300;
+}
+
+.underline {
+  border: 0.5px solid;
+  margin-top: 15px;
 }
