@@ -23,12 +23,20 @@
   display: flex;
   align-items: center;
   margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .projectTitle {
   font-size: 20px;
   font-weight: 300;
   text-transform: uppercase;
+}
+
+.collapseButton {
+  all: unset;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .buttons {
