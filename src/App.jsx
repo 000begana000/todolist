@@ -5,29 +5,39 @@ import Projects from "./components/Projects/Projects";
 import NewProject from "./components/NewProject/NewProject";
 
 export default function App() {
-  const [projectsState, setProjectsState] = useState([
+  const [projectsState, setProjectsState] = useState({
     // dummy project
-    {
-      id: Math.floor(Math.random() * 1000) + 1,
-      title: "Project 1",
-      description: "Description for project 1",
-      dueDate: "2023-10-01",
-      isDone: false,
-    },
-  ]);
+    projects: [
+      {
+        id: Math.floor(Math.random() * 1000) + 1,
+        title: "Project 1",
+        description: "Description for project 1",
+        dueDate: "2023-10-01",
+        isDone: false,
+      },
+    ],
+  });
 
   /// create new project ///
   function handleCreateNewProject(project) {
     const randomNumber = Math.floor(Math.random() * 1000) + 1;
 
-    setProjectsState(prevProejct => {
+    setProjectsState(prevProject => {
       const newProject = {
         id: randomNumber,
         title: project.title,
         description: project.description,
         dueDate: project.dueDate,
       };
-      return [newProject, ...prevProejct];
+      return { projects: [newProject, ...prevProject] };
+    });
+  }
+
+  function handleDeleteProject(id) {
+    setProjectsState(prevState => {
+      return {
+        projects: prevState.projects.filter(project => project.id !== id),
+      };
     });
   }
 
@@ -35,7 +45,10 @@ export default function App() {
     <>
       <Header />
       <main>
-        <Projects projects={projectsState} />
+        <Projects
+          projects={projectsState.projects}
+          onDelete={handleDeleteProject}
+        />
         <NewProject onCreate={handleCreateNewProject} />
       </main>
     </>

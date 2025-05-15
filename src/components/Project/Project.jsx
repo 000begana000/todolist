@@ -7,14 +7,15 @@ import classes from "./Project.module.css";
 import Button from "../UI/Button";
 
 // change input field to Input component
-export default function Project({ project, onToggleDone }) {
+export default function Project({ project, onDelete }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isDone, setIsDone] = useState(false);
 
+  /// collapse icons
   const collapseUpIcon = <FontAwesomeIcon icon={faChevronUp} />;
   const collapseDownIcon = <FontAwesomeIcon icon={faChevronDown} />;
 
-  // style project title
+  /// style project title
   let isProjectDone;
 
   if (isDone) {
@@ -23,11 +24,12 @@ export default function Project({ project, onToggleDone }) {
     isProjectDone = classes.projectTitle;
   }
 
-  // toggle collapse when user clicks collapse button
+  /// toggle collapse when user clicks collapse button
   function toggleCollapse() {
     setIsCollapsed(prevState => !prevState);
   }
 
+  /// toggle isDone state & update UI
   function handleToggleDone() {
     setIsDone(!isDone);
   }
@@ -65,7 +67,7 @@ export default function Project({ project, onToggleDone }) {
           <div>
             <p className={classes.buttons}>
               <Button button="edit" />
-              <Button button="delete" />
+              <Button button="delete" onClick={() => onDelete(project.id)} />
             </p>
             <p className={classes.projectDueDate}>
               due date: {project.dueDate}
