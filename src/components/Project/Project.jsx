@@ -7,15 +7,29 @@ import classes from "./Project.module.css";
 import Button from "../UI/Button";
 
 // change input field to Input component
-export default function Project({ project }) {
+export default function Project({ project, onToggleDone }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isDone, setIsDone] = useState(false);
 
   const collapseUpIcon = <FontAwesomeIcon icon={faChevronUp} />;
   const collapseDownIcon = <FontAwesomeIcon icon={faChevronDown} />;
 
+  // style project title
+  let isProjectDone;
+
+  if (isDone) {
+    isProjectDone = `${classes.projectTitle} ${classes.lineThrough}`;
+  } else {
+    isProjectDone = classes.projectTitle;
+  }
+
   // toggle collapse when user clicks collapse button
   function toggleCollapse() {
     setIsCollapsed(prevState => !prevState);
+  }
+
+  function handleToggleDone() {
+    setIsDone(!isDone);
   }
 
   return (
@@ -27,10 +41,11 @@ export default function Project({ project }) {
               type="checkbox"
               id="scales"
               name="scales"
-              checked={project.isDone ? ture : false}
-              className={`${classes.checkbox} ${classes.test}`}
+              checked={isDone}
+              className={classes.checkbox}
+              onChange={handleToggleDone}
             />
-            <label htmlFor="scales" className={classes.projectTitle}>
+            <label htmlFor="scales" className={isProjectDone}>
               {project.title}
             </label>
           </div>

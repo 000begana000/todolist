@@ -16,6 +16,7 @@ export default function App() {
     },
   ]);
 
+  /// create new project ///
   function handleCreateNewProject(project) {
     const randomNumber = Math.floor(Math.random() * 1000) + 1;
 
@@ -25,7 +26,6 @@ export default function App() {
         title: project.title,
         description: project.description,
         dueDate: project.dueDate,
-        isDone: false,
       };
       return [newProject, ...prevProejct];
     });
