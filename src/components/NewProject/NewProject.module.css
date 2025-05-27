@@ -3,6 +3,11 @@
   width: 47%;
 }
 
+.newProject {
+  padding: 0 15px 40px 15px;
+  border-bottom: 1px solid black;
+}
+
 .heading {
   margin: 0;
   border: 1px solid black;
@@ -12,6 +17,7 @@
   font-weight: 400;
 }
 
-.alignRight {
+.buttons {
   text-align: right;
+  margin-bottom: 0;
 }

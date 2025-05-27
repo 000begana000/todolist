@@ -7,13 +7,15 @@ export default function NewProject() {
   return (
     <section className={styles.container}>
       <div className={styles.heading}>create new project</div>
-      <Input label="title" />
-      <Input textarea label="description" />
-      <Input label="due date" />
-      <p className={styles.alignRight}>
-        <Button button="cancel" />
-        <Button button="save" />
-      </p>
+      <div className={styles.newProject}>
+        <Input label="title" />
+        <Input textarea label="description" />
+        <Input label="due date" />
+        <p className={styles.buttons}>
+          <Button button="cancel" />
+          <Button button="save" />
+        </p>
+      </div>
     </section>
   );
 }
