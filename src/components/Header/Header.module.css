@@ -1,0 +1,29 @@
+.header {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 30px;
+  border: 1px solid black;
+
+  h1 {
+    margin: 15px 0;
+    font-weight: 400;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.left {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid black;
+  border-left: none;
+  border-bottom: none;
+}
+
+.right {
+  width: 100%;
+  padding: 15px;
+  border-top: 1px solid black;
+}
