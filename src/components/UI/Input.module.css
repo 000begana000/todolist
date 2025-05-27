@@ -1,0 +1,33 @@
+.label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.input {
+  all: unset;
+  border-radius: 0;
+  border: 1px solid black;
+  font-size: 16px;
+  height: 29px;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.textarea {
+  font-family: "Cormorant Garamond", serif;
+  border-radius: 0;
+  border: 1px solid black;
+  height: 89px;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+}
+
+.textarea:focus {
+  outline: none;
+}
