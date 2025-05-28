@@ -1,9 +1,9 @@
-.container {
+.newProject {
   margin-top: 36px;
   width: 47%;
 }
 
-.innerContainer {
+.container {
   padding: 0 15px 40px 15px;
   border-bottom: 1px solid black;
 }

@@ -5,9 +5,9 @@ import styles from "./NewProject.module.css";
 
 export default function NewProject() {
   return (
-    <section className={styles.container}>
+    <section className={styles.newProject}>
       <div className={styles.heading}>create new project</div>
-      <div className={styles.innerContainer}>
+      <div className={styles.conatiner}>
         <Input label="title" />
         <Input textarea label="description" />
         <Input label="due date" />
