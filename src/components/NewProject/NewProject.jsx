@@ -7,7 +7,7 @@ export default function NewProject() {
   return (
     <section className={styles.container}>
       <div className={styles.heading}>create new project</div>
-      <div className={styles.newProject}>
+      <div className={styles.innerContainer}>
         <Input label="title" />
         <Input textarea label="description" />
         <Input label="due date" />
