@@ -1,12 +1,12 @@
 import styles from "./Input.module.css";
 
-export default function Input({ textarea, label }) {
+export default function Input({ textarea, label, ...props }) {
   let inputField;
 
   if (textarea) {
-    inputField = <textarea className={styles.textarea} />;
+    inputField = <textarea className={styles.textarea} {...props} />;
   } else {
-    inputField = <input className={styles.input} />;
+    inputField = <input className={styles.input} {...props} />;
   }
 
   return (
