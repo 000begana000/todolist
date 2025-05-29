@@ -40,8 +40,10 @@ function projectReducer(state, action) {
 }
 
 export function ProjectContextProvider({ children }) {
+  const projectsData = JSON.parse(localStorage.getItem("projects"));
+
   const [projectsState, dispatchProjectAction] = useReducer(projectReducer, {
-    projects: [],
+    projects: projectsData || [],
   });
 
   function addProject(project) {

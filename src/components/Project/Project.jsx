@@ -19,7 +19,7 @@ export default function Project({ project }) {
         checked={project.isDone}
         onChange={handleIsDone}
       />
-      <label htmlFor="">{project.title}</label>
+      <label name="title">{project.title}</label>
     </p>
   );
 }
