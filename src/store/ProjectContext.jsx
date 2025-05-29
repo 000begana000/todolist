@@ -4,6 +4,7 @@ const ProjectContext = createContext({
   projects: [],
   addProject: project => {},
   checkIsDone: id => {},
+  deleteProject: id => {},
 });
 
 function projectReducer(state, action) {
@@ -36,6 +37,16 @@ function projectReducer(state, action) {
     return { ...state, projects: updatedProjects };
   }
 
+  //// deleteProject - delete a project from projects state
+  if (action.type === "DELETE_PROJECT") {
+    const updatedProjects = state.projects.filter(
+      project => project.id !== action.id
+    );
+
+    localStorage.setItem("projects", JSON.stringify(updatedProjects));
+    return { ...state, projects: updatedProjects };
+  }
+
   return state;
 }
 
@@ -60,10 +71,18 @@ export function ProjectContextProvider({ children }) {
     });
   }
 
+  function deleteProject(id) {
+    dispatchProjectAction({
+      type: "DELETE_PROJECT",
+      id,
+    });
+  }
+
   const cartCtxValue = {
     projects: projectsState.projects,
     addProject,
     checkIsDone,
+    deleteProject,
   };
 
   return (

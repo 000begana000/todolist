@@ -7,10 +7,14 @@ import Button from "../UI/Button";
 
 export default function Project({ project }) {
   const projectContext = useContext(ProjectContext);
-  const { checkIsDone } = projectContext;
+  const { checkIsDone, deleteProject } = projectContext;
 
   function handleIsDone() {
     checkIsDone(project.id);
+  }
+
+  function handleDeleteProject() {
+    deleteProject(project.id);
   }
 
   return (
@@ -23,7 +27,7 @@ export default function Project({ project }) {
         onChange={handleIsDone}
       />
       <label name="title">{project.title}</label>
-      <Button button="delete" />
+      <Button button="delete" onClick={handleDeleteProject} />
     </p>
   );
 }
