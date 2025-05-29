@@ -11,6 +11,9 @@ export default function Projects() {
     <section className={styles.projects}>
       <h1 className={styles.heading}>to do</h1>
       {projects.length === 0 && <p>create new project</p>}
+      {projects.map(project => (
+        <p>{project.title}</p>
+      ))}
     </section>
   );
 }

@@ -29,7 +29,7 @@ export function ProjectContextProvider({ children }) {
   }
 
   const cartCtxValue = {
-    projects: projectsState.project,
+    projects: projectsState.projects,
     addProject,
   };
 
