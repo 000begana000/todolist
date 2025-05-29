@@ -6,7 +6,7 @@ export default function Input({ textarea, label, ...props }) {
   if (textarea) {
     inputField = <textarea className={styles.textarea} {...props} />;
   } else {
-    inputField = <input className={styles.input} {...props} />;
+    inputField = <input className={styles.input} required {...props} />;
   }
 
   return (
