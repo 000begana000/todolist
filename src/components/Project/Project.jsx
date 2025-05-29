@@ -1,6 +1,15 @@
-import Input from "../UI/Input";
+// context
+import { useContext } from "react";
+import ProjectContext from "../../store/ProjectContext";
 
 export default function Project({ project }) {
+  const projectContext = useContext(ProjectContext);
+  const { checkIsDone } = projectContext;
+
+  function handleIsDone() {
+    checkIsDone(project.id);
+  }
+
   return (
     <p>
       <input
@@ -8,6 +17,7 @@ export default function Project({ project }) {
         id="project"
         name="project"
         checked={project.isDone}
+        onChange={handleIsDone}
       />
       <label htmlFor="">{project.title}</label>
     </p>
