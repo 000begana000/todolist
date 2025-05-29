@@ -1,6 +1,9 @@
-// context
+//// context
 import { useContext } from "react";
 import ProjectContext from "../../store/ProjectContext";
+
+//// component
+import Button from "../UI/Button";
 
 export default function Project({ project }) {
   const projectContext = useContext(ProjectContext);
@@ -20,6 +23,7 @@ export default function Project({ project }) {
         onChange={handleIsDone}
       />
       <label name="title">{project.title}</label>
+      <Button button="delete" />
     </p>
   );
 }
