@@ -7,13 +7,17 @@ const ProjectContext = createContext({
 });
 
 function projectReducer(state, action) {
+  //// addProject - add a project to projects state
   if (action.type === "ADD_PROJECT") {
     const newProject = action.project;
     const updatedProjects = [newProject, ...state.projects];
 
+    localStorage.setItem("projects", JSON.stringify(updatedProjects));
+
     return { ...state, projects: updatedProjects };
   }
 
+  //// checkIsDone - toggle isDone prop in a state
   if (action.type === "CHECK_IS_DONE") {
     const existingProjectIndex = state.projects.findIndex(
       project => project.id === action.id
@@ -26,6 +30,8 @@ function projectReducer(state, action) {
     };
 
     updatedProjects[existingProjectIndex] = updatedProject;
+
+    localStorage.setItem("projects", JSON.stringify(updatedProjects));
 
     return { ...state, projects: updatedProjects };
   }

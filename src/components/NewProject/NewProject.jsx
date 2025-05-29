@@ -33,7 +33,6 @@ export default function NewProject() {
       dueDate: enteredDueDate,
       isDone: false,
     };
-    console.log(formData);
 
     //// Context function
     addProject(newProject);
