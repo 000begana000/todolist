@@ -15,10 +15,12 @@ export default function Projects() {
   return (
     <section className={styles.projects}>
       <h1 className={styles.heading}>to do</h1>
-      {projects.length === 0 && <p>create new project</p>}
-      {projects.map(project => (
-        <Project key={project.id} project={project} />
-      ))}
+      <div className={styles.container}>
+        {projects.length === 0 && <p>create new project</p>}
+        {projects.map(project => (
+          <Project key={project.id} project={project} />
+        ))}
+      </div>
     </section>
   );
 }
