@@ -12,6 +12,13 @@ export default function Project({ project }) {
   const projectContext = useContext(ProjectContext);
   const { checkIsDone, deleteProject } = projectContext;
 
+  //// format date to EU
+  const formattedDate = new Date(project.dueDate).toLocaleDateString("de-DE", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
+
   function handleIsDone() {
     checkIsDone(project.id);
   }
@@ -36,7 +43,7 @@ export default function Project({ project }) {
         <p>
           <Button button="delete" onClick={handleDeleteProject} />
         </p>
-        <p className={sytles.projectDuedate}>due date: {project.dueDate}</p>
+        <p className={sytles.projectDuedate}>due date: {formattedDate}</p>
         <p className={sytles.projectDesc}>{project.description}</p>
       </div>
     </>
