@@ -13,6 +13,12 @@
   text-transform: uppercase;
 }
 
+.buttons {
+  margin: 0;
+  margin-top: 7px;
+  text-align: right;
+}
+
 .projectDuedate {
   font-weight: 500;
   margin: 25px 0 8px 0;

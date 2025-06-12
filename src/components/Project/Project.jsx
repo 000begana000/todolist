@@ -73,7 +73,8 @@ export default function Project({ project }) {
 
         {!isCollapsed && (
           <>
-            <p>
+            <p className={styles.buttons}>
+              <Button button="edit" />
               <Button button="delete" onClick={handleDeleteProject} />
             </p>
             <p className={styles.projectDuedate}>due date: {formattedDate}</p>
