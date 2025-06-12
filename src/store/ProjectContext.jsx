@@ -4,7 +4,8 @@ const ProjectContext = createContext({
   projects: [],
   addProject: project => {},
   checkIsDone: id => {},
-  deleteProject: id => {},
+  editProject: id => {},
+  deleteProject: (id, project) => {},
 });
 
 function projectReducer(state, action) {
@@ -28,6 +29,31 @@ function projectReducer(state, action) {
     const updatedProject = {
       ...existingProject,
       isDone: !existingProject.isDone,
+    };
+
+    updatedProjects[existingProjectIndex] = updatedProject;
+
+    localStorage.setItem("projects", JSON.stringify(updatedProjects));
+
+    return { ...state, projects: updatedProjects };
+  }
+
+  //// edit project details
+  if (action.type === "EDIT_PROJECT") {
+    const existingProjectIndex = state.projects.findIndex(
+      project => project.id === action.id
+    );
+    const existingProject = state.projects[existingProjectIndex];
+
+    const updatedProjects = [...state.projects];
+
+    const updatedProject = {
+      ...existingProject,
+      id: action.project.id,
+      title: action.project.title,
+      dueDate: action.project.dueDate,
+      description: action.project.description,
+      isDone: action.project.isDone,
     };
 
     updatedProjects[existingProjectIndex] = updatedProject;
@@ -71,6 +97,14 @@ export function ProjectContextProvider({ children }) {
     });
   }
 
+  function editProject(id, project) {
+    dispatchProjectAction({
+      type: "EDIT_PROJECT",
+      id,
+      project,
+    });
+  }
+
   function deleteProject(id) {
     dispatchProjectAction({
       type: "DELETE_PROJECT",
@@ -82,6 +116,7 @@ export function ProjectContextProvider({ children }) {
     projects: projectsState.projects,
     addProject,
     checkIsDone,
+    editProject,
     deleteProject,
   };
 
