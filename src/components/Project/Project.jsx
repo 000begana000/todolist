@@ -84,17 +84,13 @@ export default function Project({ project }) {
       />
     );
     projectDueDate = (
-      <div className={styles.flex}>
-        <span>{formattedDate}</span>
-        <span>to</span>
-        <input
-          className={styles.inputDate}
-          type="date"
-          defaultValue={project.dueDate}
-          ref={dueDate}
-          required
-        />
-      </div>
+      <input
+        className={styles.inputDate}
+        type="date"
+        defaultValue={project.dueDate}
+        ref={dueDate}
+        required
+      />
     );
     projectDesc = (
       <textarea
@@ -149,7 +145,7 @@ export default function Project({ project }) {
               />
               <Button button="delete" onClick={handleDeleteProject} />
             </p>
-            <p className={styles.projectDuedate}>due date: {projectDueDate}</p>
+            <p className={styles.projectDuedate}>due date - {projectDueDate}</p>
             <p className={styles.projectDesc}>{projectDesc}</p>
           </>
         )}
