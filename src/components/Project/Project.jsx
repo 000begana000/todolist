@@ -14,6 +14,7 @@ import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Project({ project }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
 
   const projectContext = useContext(ProjectContext);
   const { checkIsDone, deleteProject } = projectContext;
@@ -41,15 +42,51 @@ export default function Project({ project }) {
     setIsCollapsed(prevState => !prevState);
   }
 
+  function handleEditProject() {
+    setIsEditing(prevState => !prevState);
+  }
+
   function handleDeleteProject() {
     deleteProject(project.id);
+  }
+
+  let projectTitle;
+  let projectDueDate;
+  let projectDesc;
+
+  if (isEditing) {
+    projectTitle = (
+      <input placeholder={project.title} className={styles.inputTitle} />
+    );
+    projectDueDate = (
+      <div className={styles.flex}>
+        <span>{formattedDate}</span>
+        <span>to</span>
+        <input
+          type="date"
+          placeholder={project.dueDate}
+          className={styles.inputDate}
+        />
+      </div>
+    );
+    projectDesc = (
+      <textarea placeholder={project.description} className={styles.textarea} />
+    );
+  } else {
+    projectTitle = (
+      <label name="title" className={styles.projectTitle}>
+        {project.title}
+      </label>
+    );
+    projectDueDate = formattedDate;
+    projectDesc = project.description;
   }
 
   return (
     <>
       <div className={styles.project}>
         <div className={styles.flex}>
-          <span>
+          <span className={styles.projectTitleContainer}>
             <input
               type="checkbox"
               id="project"
@@ -57,9 +94,7 @@ export default function Project({ project }) {
               checked={project.isDone}
               onChange={handleIsDone}
             />
-            <label name="title" className={styles.projectTitle}>
-              {project.title}
-            </label>
+            {projectTitle}
           </span>
           <span>
             <button
@@ -74,11 +109,14 @@ export default function Project({ project }) {
         {!isCollapsed && (
           <>
             <p className={styles.buttons}>
-              <Button button="edit" />
+              <Button
+                button={isEditing ? "save" : "edit"}
+                onClick={handleEditProject}
+              />
               <Button button="delete" onClick={handleDeleteProject} />
             </p>
-            <p className={styles.projectDuedate}>due date: {formattedDate}</p>
-            <p className={styles.projectDesc}>{project.description}</p>
+            <p className={styles.projectDuedate}>due date: {projectDueDate}</p>
+            <p className={styles.projectDesc}>{projectDesc}</p>
           </>
         )}
       </div>

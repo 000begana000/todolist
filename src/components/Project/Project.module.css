@@ -9,6 +9,10 @@
   justify-content: space-between;
 }
 
+.projectTitleContainer {
+  width: 100%;
+}
+
 .projectTitle {
   text-transform: uppercase;
 }
@@ -27,6 +31,41 @@
 .projectDesc {
   font-weight: 300;
   margin: 0;
+}
+
+.inputTitle {
+  font-family: "Cormorant Garamond", serif;
+  border-radius: 0;
+  border: 1px solid black;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-transform: uppercase;
+  resize: none;
+  width: 90%;
+}
+
+.inputDate {
+  font-family: "Cormorant Garamond", serif;
+  border-radius: 0;
+  border: 1px solid black;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
+  width: 60%;
+}
+
+.textarea {
+  font-family: "Cormorant Garamond", serif;
+  border-radius: 0;
+  border: 1px solid black;
+  height: 89px;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: none;
 }
 
 .collapseButton {
