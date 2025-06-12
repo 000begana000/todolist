@@ -1,5 +1,7 @@
+//// hooks
+import { useContext, useState, useRef } from "react";
+
 //// context
-import { useContext, useState } from "react";
 import ProjectContext from "../../store/ProjectContext";
 
 //// component
@@ -17,7 +19,12 @@ export default function Project({ project }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const projectContext = useContext(ProjectContext);
-  const { checkIsDone, deleteProject } = projectContext;
+  const { checkIsDone, editProject, deleteProject } = projectContext;
+
+  //// refs
+  const title = useRef();
+  const dueDate = useRef();
+  const description = useRef();
 
   //// format date to EU
   const formattedDate = new Date(project.dueDate).toLocaleDateString("de-DE", {
@@ -46,6 +53,18 @@ export default function Project({ project }) {
     setIsEditing(prevState => !prevState);
   }
 
+  function handleSaveEditedProject() {
+    const editedProjectDetails = {
+      id: project.id,
+      title: title.current.value,
+      dueDate: dueDate.current.value,
+      description: description.current.value,
+      isDone: project.isDone,
+    };
+    editProject(project.id, editedProjectDetails);
+    setIsEditing(prevState => !prevState);
+  }
+
   function handleDeleteProject() {
     deleteProject(project.id);
   }
@@ -54,23 +73,36 @@ export default function Project({ project }) {
   let projectDueDate;
   let projectDesc;
 
+  //// show input field when isEditing is true - else display project details
   if (isEditing) {
     projectTitle = (
-      <input placeholder={project.title} className={styles.inputTitle} />
+      <input
+        className={styles.inputTitle}
+        defaultValue={project.title}
+        ref={title}
+        required
+      />
     );
     projectDueDate = (
       <div className={styles.flex}>
         <span>{formattedDate}</span>
         <span>to</span>
         <input
-          type="date"
-          placeholder={project.dueDate}
           className={styles.inputDate}
+          type="date"
+          defaultValue={project.dueDate}
+          ref={dueDate}
+          required
         />
       </div>
     );
     projectDesc = (
-      <textarea placeholder={project.description} className={styles.textarea} />
+      <textarea
+        className={styles.textarea}
+        defaultValue={project.description}
+        ref={description}
+        required
+      />
     );
   } else {
     projectTitle = (
@@ -111,7 +143,9 @@ export default function Project({ project }) {
             <p className={styles.buttons}>
               <Button
                 button={isEditing ? "save" : "edit"}
-                onClick={handleEditProject}
+                onClick={
+                  isEditing ? handleSaveEditedProject : handleEditProject
+                }
               />
               <Button button="delete" onClick={handleDeleteProject} />
             </p>
