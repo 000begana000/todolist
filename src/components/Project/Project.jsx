@@ -6,6 +6,7 @@ import ProjectContext from "../../store/ProjectContext";
 
 //// component
 import Button from "../UI/Button";
+import Tasks from "../Tasks/Tasks";
 
 //// css module
 import styles from "./Project.module.css";
@@ -147,6 +148,7 @@ export default function Project({ project }) {
             </p>
             <p className={styles.projectDuedate}>due date - {projectDueDate}</p>
             <p className={styles.projectDesc}>{projectDesc}</p>
+            <Tasks />
           </>
         )}
       </div>
