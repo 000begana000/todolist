@@ -1,5 +1,5 @@
 //// hook
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 //// context
 import TaskContext from "../../store/TaskContext";
