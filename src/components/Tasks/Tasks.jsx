@@ -23,7 +23,9 @@ export default function Tasks() {
           <p className={styles.task}>
             <span>
               <input type="checkbox" />
-              <label key={task.id}>{task.description}</label>
+              <label key={task.id} className={styles.label}>
+                {task.description}
+              </label>
             </span>
             <Button button="edit" className={styles.lowercase} />
           </p>
