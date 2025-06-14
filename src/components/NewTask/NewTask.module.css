@@ -6,3 +6,16 @@
 .lowercase {
   text-transform: lowercase;
 }
+
+.taskInput {
+  font-family: "Cormorant Garamond", serif;
+  border-radius: 0;
+  border: 1px solid black;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 13px;
+  text-transform: uppercase;
+  resize: none;
+  width: 85%;
+  height: 22px;
+}
