@@ -21,6 +21,10 @@ export default function Task({ task }) {
     setIsEditing(prevState => !prevState);
   }
 
+  function handleIsDone() {
+    taskCtx.checkIsDone(task.id);
+  }
+
   function handleSaveEditedTask() {
     const enteredTaskDesc = taskRef.current.value;
 
@@ -47,7 +51,7 @@ export default function Task({ task }) {
   return (
     <p className={styles.task}>
       <span>
-        <input type="checkbox" />
+        <input type="checkbox" checked={task.isDone} onChange={handleIsDone} />
         {taskDesc}
       </span>
       <Button
