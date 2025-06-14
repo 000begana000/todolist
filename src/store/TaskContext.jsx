@@ -19,6 +19,24 @@ function taskReducer(state, action) {
 
   if (action.type === "EDIT_TASK") {
     //...
+    const existingTaskIndex = state.tasks.findIndex(
+      task => task.id === action.id
+    );
+    const updatedTasks = [...state.tasks];
+    const existingTask = state.tasks[existingTaskIndex];
+
+    const updatedTask = {
+      ...existingTask,
+      id: existingTask.id,
+      description: action.task.description,
+      isDone: action.task.isDone,
+    };
+
+    updatedTasks[existingTaskIndex] = updatedTask;
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+
+    return { ...state, tasks: updatedTasks };
   }
 
   if (action.type === "CHECK_IS_DONE") {
