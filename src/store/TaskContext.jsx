@@ -33,10 +33,10 @@ function taskReducer(state, action) {
   return state;
 }
 
-export function TextContextProvider({ children }) {
+export function TaskContextProvider({ children }) {
   const tasksData = JSON.parse(localStorage.getItem("tasks"));
 
-  const [tasks, dispatchTaskAction] = useReducer(taskReducer, {
+  const [taskState, dispatchTaskAction] = useReducer(taskReducer, {
     tasks: tasksData || [],
   });
 
@@ -57,14 +57,15 @@ export function TextContextProvider({ children }) {
   }
 
   const taskCtx = {
-    tasks,
+    tasks: taskState.tasks,
     addTask,
     editTask,
     deleteTask,
     checkIsDone,
   };
+
   return (
-    <TextContext.Provider value={taskCtx}>{children}</TextContext.Provider>
+    <TaskContext.Provider value={taskCtx}>{children}</TaskContext.Provider>
   );
 }
 
