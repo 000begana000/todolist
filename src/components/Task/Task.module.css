@@ -1,0 +1,14 @@
+.task {
+  margin: 8px 0 8px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: 18px;
+  margin-left: 6px;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}

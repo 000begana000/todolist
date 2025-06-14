@@ -1,34 +1,25 @@
 //// hook
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 //// context
 import TaskContext from "../../store/TaskContext";
 
 //// component
 import NewTask from "../NewTask/NewTask";
-import Button from "../UI/Button";
+import Task from "../Task/Task";
 
 //// css module
 import styles from "./Tasks.module.css";
 
 export default function Tasks() {
   const taskCtx = useContext(TaskContext);
-  const { tasks } = taskCtx;
 
   return (
     <div className={styles.container}>
       <NewTask />
       <div className={styles.taskContainer}>
-        {tasks.map(task => (
-          <p className={styles.task}>
-            <span>
-              <input type="checkbox" />
-              <label key={task.id} className={styles.label}>
-                {task.description}
-              </label>
-            </span>
-            <Button button="edit" className={styles.lowercase} />
-          </p>
+        {taskCtx.tasks.map(task => (
+          <Task key={task.id} task={task} />
         ))}
       </div>
     </div>
