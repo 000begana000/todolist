@@ -21,6 +21,7 @@ export default function NewTask() {
     const newTask = {
       id: Math.floor(Math.random() * 1000) + 1,
       description: enteredTask,
+      isDone: false,
     };
 
     taskCtx.addTask(newTask);
