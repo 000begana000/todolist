@@ -24,6 +24,8 @@ export default function NewTask() {
     };
 
     taskCtx.addTask(newTask);
+
+    task.current.value = "";
   }
 
   return (
