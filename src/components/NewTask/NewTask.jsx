@@ -16,7 +16,14 @@ export default function NewTask() {
   const task = useRef();
 
   function handleAddTask() {
-    taskCtx.addTask(task.current.value);
+    const enteredTask = task.current.value;
+
+    const newTask = {
+      id: Math.floor(Math.random() * 1000) + 1,
+      description: enteredTask,
+    };
+
+    taskCtx.addTask(newTask);
   }
 
   return (
