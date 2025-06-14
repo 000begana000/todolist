@@ -28,10 +28,7 @@ export default function NewTask() {
 
   return (
     <div className={styles.flex}>
-      <span>
-        <input type="checkbox" />
-        <input type="text" placeholder="add new task..." ref={task} />
-      </span>
+      <input type="text" placeholder="add new task..." ref={task} />
       <Button button="add" onClick={handleAddTask} />
     </div>
   );
