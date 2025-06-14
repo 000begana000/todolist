@@ -1,5 +1,5 @@
 //// component
-import Button from "../UI/Button";
+import NewTask from "../NewTask/NewTask";
 
 //// css module
 import styles from "./Tasks.module.css";
@@ -7,13 +7,7 @@ import styles from "./Tasks.module.css";
 export default function Tasks() {
   return (
     <div className={styles.container}>
-      <div className={styles.flex}>
-        <span>
-          <input type="checkbox" />
-          <input type="text" placeholder="add new task..." />
-        </span>
-        <Button button="add" />
-      </div>
+      <NewTask />
     </div>
   );
 }

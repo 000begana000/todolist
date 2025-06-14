@@ -1,0 +1,31 @@
+//// hooks
+import { useRef, useContext } from "react";
+
+//// context
+import TaskContext from "../../store/TaskContext";
+
+//// component
+import Button from "../UI/Button";
+
+//// css module
+import styles from "./NewTask.module.css";
+
+export default function NewTask() {
+  const taskCtx = useContext(TaskContext);
+
+  const task = useRef();
+
+  function handleAddTask() {
+    taskCtx.addTask(task.current.value);
+  }
+
+  return (
+    <div className={styles.flex}>
+      <span>
+        <input type="checkbox" />
+        <input type="text" placeholder="add new task..." ref={task} />
+      </span>
+      <Button button="add" onClick={handleAddTask} />
+    </div>
+  );
+}
