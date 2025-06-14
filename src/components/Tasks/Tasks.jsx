@@ -10,9 +10,9 @@ export default function Tasks() {
       <div className={styles.flex}>
         <span>
           <input type="checkbox" />
-          <input type="text" />
+          <input type="text" placeholder="add new task..." />
         </span>
-        <Button button="save" />
+        <Button button="add" />
       </div>
     </div>
   );
