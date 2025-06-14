@@ -18,10 +18,10 @@ export default function Tasks() {
     <div className={styles.container}>
       <NewTask />
       {tasks.map(task => (
-        <>
+        <p className={styles.task}>
           <input type="checkbox" />
           <label key={task.id}>{task.description}</label>
-        </>
+        </p>
       ))}
     </div>
   );

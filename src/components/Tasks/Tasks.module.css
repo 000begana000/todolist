@@ -1,3 +1,7 @@
 .container {
-  padding: 25px 15px;
+  padding: 25px 15px 0 15px;
+}
+
+.task {
+  margin: 8px 0 8px 0;
 }
