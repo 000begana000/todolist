@@ -32,7 +32,11 @@ export default function NewTask() {
   return (
     <div className={styles.flex}>
       <input type="text" placeholder="add new task..." ref={task} />
-      <Button button="add" onClick={handleAddTask} />
+      <Button
+        button="add"
+        className={styles.lowercase}
+        onClick={handleAddTask}
+      />
     </div>
   );
 }

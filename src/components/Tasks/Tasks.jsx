@@ -25,7 +25,7 @@ export default function Tasks() {
               <input type="checkbox" />
               <label key={task.id}>{task.description}</label>
             </span>
-            <Button button="edit" />
+            <Button button="edit" className={styles.lowercase} />
           </p>
         ))}
       </div>

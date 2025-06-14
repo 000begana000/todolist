@@ -1,8 +1,10 @@
 import styles from "./Button.module.css";
 
-export default function Button({ button, ...props }) {
+export default function Button({ button, className = "", ...props }) {
+  let classes = styles.button + " " + className;
+
   return (
-    <button className={styles.button} {...props}>
+    <button className={classes} {...props}>
       {button}
     </button>
   );
