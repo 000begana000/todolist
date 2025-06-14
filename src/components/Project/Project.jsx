@@ -148,7 +148,7 @@ export default function Project({ project }) {
             </p>
             <p className={styles.projectDuedate}>due date - {projectDueDate}</p>
             <p className={styles.projectDesc}>{projectDesc}</p>
-            <Tasks />
+            <Tasks key={project.id} projectId={project.id} />
           </>
         )}
       </div>

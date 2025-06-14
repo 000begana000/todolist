@@ -28,6 +28,7 @@ function taskReducer(state, action) {
     const updatedTask = {
       ...existingTask,
       id: existingTask.id,
+      projectId: existingTask.projectId,
       description: action.task.description,
       isDone: action.task.isDone,
     };

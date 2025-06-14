@@ -10,7 +10,7 @@ import Button from "../UI/Button";
 //// css module
 import styles from "./NewTask.module.css";
 
-export default function NewTask() {
+export default function NewTask({ projectId }) {
   const taskCtx = useContext(TaskContext);
 
   const task = useRef();
@@ -20,6 +20,7 @@ export default function NewTask() {
 
     const newTask = {
       id: Math.floor(Math.random() * 1000) + 1,
+      projectId: projectId,
       description: enteredTask,
       isDone: false,
     };
