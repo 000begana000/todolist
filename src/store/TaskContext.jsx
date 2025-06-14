@@ -4,7 +4,6 @@ const TaskContext = createContext({
   tasks: [],
   addTask: task => {},
   editTask: (id, task) => {},
-  deleteTask: id => {},
   checkIsDone: id => {},
 });
 
@@ -19,10 +18,6 @@ function taskReducer(state, action) {
   }
 
   if (action.type === "EDIT_TASK") {
-    //...
-  }
-
-  if (action.type === "DELETE_TASK") {
     //...
   }
 
@@ -48,10 +43,6 @@ export function TaskContextProvider({ children }) {
     dispatchTaskAction({ type: "EDIT_TASK", id, task });
   }
 
-  function deleteTask(id) {
-    dispatchTaskAction({ type: "DELETE_TASK", id });
-  }
-
   function checkIsDone(id) {
     dispatchTaskAction({ type: "CHECK_IS_DONE", id });
   }
@@ -60,7 +51,6 @@ export function TaskContextProvider({ children }) {
     tasks: taskState.tasks,
     addTask,
     editTask,
-    deleteTask,
     checkIsDone,
   };
 
