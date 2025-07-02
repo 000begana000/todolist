@@ -45,7 +45,15 @@ export default function Task({ task }) {
       <input type="text" defaultValue={task.description} ref={taskRef} />
     );
   } else {
-    taskDesc = <label className={styles.label}>{task.description}</label>;
+    if (task.isDone) {
+      taskDesc = (
+        <label className={`${styles.label} ${styles.lineThrough}`}>
+          {task.description}
+        </label>
+      );
+    } else {
+      taskDesc = <label className={styles.label}>{task.description}</label>;
+    }
   }
 
   return (

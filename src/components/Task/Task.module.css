@@ -12,3 +12,7 @@
 .lowercase {
   text-transform: lowercase;
 }
+
+.lineThrough {
+  text-decoration: line-through;
+}
