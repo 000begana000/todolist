@@ -102,11 +102,23 @@ export default function Project({ project }) {
       />
     );
   } else {
-    projectTitle = (
-      <label name="title" className={styles.projectTitle}>
-        {project.title}
-      </label>
-    );
+    if (project.isDone) {
+      projectTitle = (
+        <label
+          name="title"
+          className={`${styles.projectTitle} ${styles.lineThrough}`}
+        >
+          {project.title}
+        </label>
+      );
+    } else {
+      projectTitle = (
+        <label name="title" className={styles.projectTitle}>
+          {project.title}
+        </label>
+      );
+    }
+
     projectDueDate = formattedDate;
     projectDesc = project.description;
   }

@@ -17,6 +17,10 @@
   text-transform: uppercase;
 }
 
+.lineThrough {
+  text-decoration: line-through;
+}
+
 .buttons {
   margin: 0;
   margin-top: 7px;
