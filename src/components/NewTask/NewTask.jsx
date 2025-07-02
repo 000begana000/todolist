@@ -15,7 +15,8 @@ export default function NewTask({ projectId }) {
 
   const task = useRef();
 
-  function handleAddTask() {
+  function handleAddTask(event) {
+    event.preventDefault();
     const enteredTask = task.current.value;
 
     const newTask = {
@@ -31,18 +32,15 @@ export default function NewTask({ projectId }) {
   }
 
   return (
-    <div className={styles.flex}>
+    <form className={styles.flex} onSubmit={handleAddTask}>
       <input
         type="text"
         placeholder="add new task..."
         ref={task}
+        required
         className={styles.taskInput}
       />
-      <Button
-        button="add"
-        className={styles.lowercase}
-        onClick={handleAddTask}
-      />
-    </div>
+      <Button button="add" type="submit" className={styles.lowercase} />
+    </form>
   );
 }
