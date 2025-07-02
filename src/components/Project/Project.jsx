@@ -102,6 +102,7 @@ export default function Project({ project }) {
       />
     );
   } else {
+    //// when the project isDone, add line Thorugh on the project title
     if (project.isDone) {
       projectTitle = (
         <label
