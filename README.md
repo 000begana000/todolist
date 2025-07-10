@@ -16,6 +16,13 @@ todo-list-3ac96.web.app
 - add, edit task
 - check task done
 
+## Note
+
+Hello users! thanks for your interest in my todo list app.
+I desinged and built this app by myself, based on millenniel & analogic vibe.
+you need to be mind that you can't delete task, but edit.
+why? I value all the path we are going through, every achievement is precious. and I want to leave every tracks that we've made until finishing project.
+
 ## Installation
 
 ```bash
