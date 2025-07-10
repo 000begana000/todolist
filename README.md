@@ -8,6 +8,14 @@ if you delete your cookies, you will lose your data.
 
 todo-list-3ac96.web.app
 
+## Features
+
+- add, edit, delete project
+- set due date of project
+- check project done
+- add, edit task
+- check task done
+
 ## Installation
 
 ```bash
@@ -17,3 +25,10 @@ npm install
 # run localhost
 npm run dev
 ```
+
+## Author
+
+Front-end developer & web designer
+Begana Choi
+github: @000begana000
+linkedin: https://www.linkedin.com/in/beganachoi/
